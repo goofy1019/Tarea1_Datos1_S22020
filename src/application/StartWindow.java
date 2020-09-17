@@ -1,5 +1,7 @@
 package application;
 
+import java.util.Random;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +17,8 @@ public class StartWindow extends Application {
 		launch(args);
 	}
 
+	String PortList = "PortList.txt";
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("StartWindow.fxml"));
@@ -26,23 +30,45 @@ public class StartWindow extends Application {
 		primaryStage.setWidth(600);
 		primaryStage.show();
 	}
-	
+
 	@FXML
 	private javafx.scene.control.Button ChatBtn;
 	@FXML
 	private javafx.scene.control.Button ExitBtn;
-	
+
 	@FXML
-	public void ChatBtnAction(ActionEvent event) {
-		Stage window1 = (Stage) ExitBtn.getScene().getWindow();
-		window1.close();
-		System.exit(0);
+	public void ChatBtnAction(ActionEvent event) throws Exception {
+		Parent nA = FXMLLoader.load(getClass().getResource("ChatWindow.fxml"));
+		Stage NewApp = new Stage();
+		NewApp.setScene(new Scene(nA));
+		int replace = this.puerto();
+		System.out.println(replace);
+		Ports.SavePort(Integer.toString(replace), PortList);
+		NewApp.setResizable(false);
+		NewApp.setHeight(569);
+		NewApp.setWidth(966);
+		NewApp.initStyle(StageStyle.UTILITY);
+		NewApp.show();
 	}
-	
+
 	@FXML
 	public void ExitBtnAction(ActionEvent event) {
 		Stage window1 = (Stage) ExitBtn.getScene().getWindow();
 		window1.close();
+		Ports.EndPorts(PortList);
 		System.exit(0);
+	}
+
+	public int puerto() {
+		Random rand = new Random();
+		int upperbound = 65536;
+		int randInt = Math.abs(rand.nextInt(upperbound));
+
+		if (Ports.PortReader(Integer.toString(randInt), PortList) == true || randInt == 0) {
+
+			puerto();
+
+		}
+		return randInt;
 	}
 }
