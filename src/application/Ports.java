@@ -9,6 +9,9 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Ports {
+	/**
+	 * Scanner para el archivo de puertos utilizados.
+	 */
 	private static Scanner x;
 
 	/**
@@ -73,4 +76,5 @@ public class Ports {
 		writer.close();
 		return;
 	}
+
 }
