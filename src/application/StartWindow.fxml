@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../../../../../../../Pictures/Wallpapers/250472.jpg" />
+            <Image url="@../images/StartWindowBackground.png" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="64.0" layoutX="67.0" stroke="BLACK" strokeType="INSIDE" width="484.0" />

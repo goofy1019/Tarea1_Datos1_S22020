@@ -19,10 +19,10 @@
    <children>
       <ImageView fitHeight="540.0" fitWidth="960.0" pickOnBounds="true">
          <image>
-            <Image url="@Background.jpg" />
+            <Image url="@../images/ChatWindowBackground.png" />
          </image>
       </ImageView>
-      <MenuBar layoutY="2.0" prefHeight="29.0" prefWidth="960.0">
+      <MenuBar layoutY="-2.0" prefHeight="29.0" prefWidth="960.0">
         <menus>
           <Menu mnemonicParsing="false" text="Info.">
             <items>
